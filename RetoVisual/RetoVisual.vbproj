@@ -80,10 +80,22 @@
     <Compile Include="Alta.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="AltaHotel.Designer.vb">
+      <DependentUpon>AltaHotel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AltaHotel.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Baja.Designer.vb">
       <DependentUpon>Baja.vb</DependentUpon>
     </Compile>
     <Compile Include="Baja.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BajaHotel.Designer.vb">
+      <DependentUpon>BajaHotel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BajaHotel.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Buscar.Designer.vb">
@@ -131,8 +143,14 @@
     <EmbeddedResource Include="Alta.resx">
       <DependentUpon>Alta.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AltaHotel.resx">
+      <DependentUpon>AltaHotel.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Baja.resx">
       <DependentUpon>Baja.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BajaHotel.resx">
+      <DependentUpon>BajaHotel.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Buscar.resx">
       <DependentUpon>Buscar.vb</DependentUpon>
