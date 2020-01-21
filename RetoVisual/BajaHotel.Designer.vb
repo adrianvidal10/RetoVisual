@@ -26,6 +26,9 @@ Partial Class BajaHotel
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txbBuscar = New System.Windows.Forms.TextBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.cmbtipo = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -62,11 +65,41 @@ Partial Class BajaHotel
         Me.txbBuscar.Size = New System.Drawing.Size(143, 20)
         Me.txbBuscar.TabIndex = 12
         '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(301, 63)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(125, 13)
+        Me.Label10.TabIndex = 54
+        Me.Label10.Text = "Tipo de establecimiento :"
+        '
+        'cmbtipo
+        '
+        Me.cmbtipo.FormattingEnabled = True
+        Me.cmbtipo.Items.AddRange(New Object() {"alojamiento", "albergue", "camping"})
+        Me.cmbtipo.Location = New System.Drawing.Point(432, 60)
+        Me.cmbtipo.Name = "cmbtipo"
+        Me.cmbtipo.Size = New System.Drawing.Size(100, 21)
+        Me.cmbtipo.TabIndex = 53
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(12, 111)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(39, 13)
+        Me.Label2.TabIndex = 55
+        Me.Label2.Text = "Label2"
+        '
         'BajaHotel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label10)
+        Me.Controls.Add(Me.cmbtipo)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.btnBuscar)
         Me.Controls.Add(Me.Label1)
@@ -83,4 +116,7 @@ Partial Class BajaHotel
     Friend WithEvents btnBuscar As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents txbBuscar As TextBox
+    Friend WithEvents Label10 As Label
+    Friend WithEvents cmbtipo As ComboBox
+    Friend WithEvents Label2 As Label
 End Class

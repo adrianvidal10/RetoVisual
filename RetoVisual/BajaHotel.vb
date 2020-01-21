@@ -2,97 +2,69 @@
 Public Class BajaHotel
 
     Dim cnn As MySqlConnection
-    Dim sql As String
-    Dim das1 As DataSet
+    Dim das1, das2, das3 As DataSet
     Dim resultado As Integer
-    Dim adap1 As MySqlDataAdapter
+    Dim sql As String
+    Dim adap1, adap2, adap3 As MySqlDataAdapter
+
     Dim cadenaconexion As String = "server=192.168.106.14;database=retoethazi;user id=root2;password=root2;port=3306"
-    Private Sub Baja_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.ControlBox = False
-        Dim coon As New MySqlConnection(cadenaconexion)
-        'Try
-        '    coon.Open()
+    Private Sub BtnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
 
-        'Catch ex As Exception
-        '    MsgBox("Fallo en la conexión")
-        'End Try
-        'coon.Close()
+        cnn = New MySqlConnection(cadenaconexion)
+        Dim tipo As String
+        tipo = cmbtipo.Text
 
-        Dim sql As String = "SELECT * FROM cliente"
-        Dim cmd1 As New MySqlCommand(sql, coon)
+        If txbBuscar.Text = Nothing Then
+            sql = "SELECT * FROM " & tipo & " ORDER BY Nombre"
+        Else
+            sql = "SELECT * FROM " & tipo & " WHERE Nombre like '" & txbBuscar.Text & "%' ORDER BY Nombre"
+            MsgBox(sql)
+        End If
 
-        adap1 = New MySqlDataAdapter(cmd1)
+        Dim cmd As New MySqlCommand(sql, cnn)
+
+        cmd.Parameters.AddWithValue("@respuesta", txbBuscar.Text & "%")
+        cmd.Parameters.AddWithValue("@establecimiento", tipo)
+
+        adap1 = New MySqlDataAdapter(cmd)
         das1 = New DataSet
 
-        adap1.Fill(das1, "cliente")
-        Me.DataGridView1.DataSource = das1.Tables("cliente")
+        adap1.Fill(das1, "alojamiento")
+        Me.Label2.Text = "Numero de filas: " & das1.Tables("alojamiento").Rows.Count
+        Me.DataGridView1.DataSource = das1.Tables("alojamiento")
         DataGridView1.Columns(0).Width = 60
-        DataGridView1.Columns(1).Width = 100
+        DataGridView1.Columns(1).Width = 60
         DataGridView1.Columns(2).Width = 60
         DataGridView1.Columns(3).Width = 60
         DataGridView1.Columns(4).Width = 60
         DataGridView1.Columns(5).Width = 60
-        DataGridView1.Columns(6).Width = 100
-        DataGridView1.Columns(7).Width = 200
+        DataGridView1.Columns(6).Width = 60
+        DataGridView1.Columns(7).Width = 100
+        DataGridView1.Columns(8).Width = 100
 
-    End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs)
-        cnn = New MySqlConnection(cadenaconexion)
-        sql = "DELETE * FROM cliente WHERE Dni like "
-    End Sub
-
-
-
-    Private Sub BtnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
-        cnn = New MySqlConnection(cadenaconexion)
-        sql = "SELECT * FROM cliente WHERE Nombre like '" & txbBuscar.Text & "%'"
-        Dim cmd As New MySqlCommand(sql, cnn)
-
-        Try
-            cnn.Open()
-            Dim resultado As MySqlDataReader
-            resultado = cmd.ExecuteReader
-            Me.DataGridView1.DataSource = das1.Tables("cliente")
-            DataGridView1.Columns(0).Width = 60
-            DataGridView1.Columns(1).Width = 60
-            DataGridView1.Columns(2).Width = 60
-            DataGridView1.Columns(3).Width = 60
-            DataGridView1.Columns(4).Width = 60
-            DataGridView1.Columns(5).Width = 60
-            DataGridView1.Columns(6).Width = 60
-            DataGridView1.Columns(7).Width = 100
-
-
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        Finally
-            If cnn.State = ConnectionState.Open Then
-                cnn.Close()
-            End If
-        End Try
     End Sub
 
     Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
         Dim response As String
         cnn = New MySqlConnection(cadenaconexion)
-        response = MsgBox("Desea eliminar a este usuario? ", vbYesNoCancel + vbCritical, "Eliminar usuario")
+        response = MsgBox("Desea eliminar a este establecimiento? ", vbYesNoCancel + vbCritical, "Eliminar establecimiento")
         If response = vbYes Then
-
-            sql = "DELETE FROM cliente WHERE Dni = '" & Me.DataGridView1.CurrentRow.Cells.Item(1).Value & "'"
+            Dim tipo As String
+            tipo = cmbtipo.Text
+            sql = "DELETE FROM " & tipo & " WHERE Nombre like '" & Me.DataGridView1.CurrentRow.Cells.Item(1).Value & "'"
             Dim cmd As New MySqlCommand(sql, cnn)
             Try
                 cnn.Open()
                 resultado = cmd.ExecuteNonQuery
-                MsgBox("Usuario eliminado")
-                Dim sql As String = "SELECT * FROM cliente"
+                MsgBox("Establecimiento eliminado")
+                Dim sql As String = "SELECT * FROM " & tipo & ""
                 Dim cmd1 As New MySqlCommand(sql, cnn)
 
                 adap1 = New MySqlDataAdapter(cmd1)
                 das1 = New DataSet
 
-                adap1.Fill(das1, "cliente")
-                Me.DataGridView1.DataSource = das1.Tables("cliente")
+                adap1.Fill(das1, "establecimiento")
+                Me.DataGridView1.DataSource = das1.Tables("establecimiento")
                 DataGridView1.Columns(0).Width = 60
                 DataGridView1.Columns(1).Width = 100
                 DataGridView1.Columns(2).Width = 60
@@ -101,7 +73,7 @@ Public Class BajaHotel
                 DataGridView1.Columns(5).Width = 60
                 DataGridView1.Columns(6).Width = 100
                 DataGridView1.Columns(7).Width = 200
-
+                DataGridView1.Columns(8).Width = 200
             Catch ex As Exception
                 MsgBox(ex.Message)
             Finally
@@ -109,8 +81,6 @@ Public Class BajaHotel
                     cnn.Close()
                 End If
             End Try
-
-
         End If
     End Sub
 End Class
