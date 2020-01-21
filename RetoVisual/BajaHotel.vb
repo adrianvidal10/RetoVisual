@@ -2,10 +2,10 @@
 Public Class BajaHotel
 
     Dim cnn As MySqlConnection
-    Dim das1, das2, das3 As DataSet
+    Dim das1 As DataSet
     Dim resultado As Integer
     Dim sql As String
-    Dim adap1, adap2, adap3 As MySqlDataAdapter
+    Dim adap1 As MySqlDataAdapter
 
     Dim cadenaconexion As String = "server=192.168.106.14;database=retoethazi;user id=root2;password=root2;port=3306"
     Private Sub BtnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
@@ -23,8 +23,6 @@ Public Class BajaHotel
 
         Dim cmd As New MySqlCommand(sql, cnn)
 
-        cmd.Parameters.AddWithValue("@respuesta", txbBuscar.Text & "%")
-        cmd.Parameters.AddWithValue("@establecimiento", tipo)
 
         adap1 = New MySqlDataAdapter(cmd)
         das1 = New DataSet

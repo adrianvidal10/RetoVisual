@@ -104,6 +104,12 @@
     <Compile Include="Buscar.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="BuscarHotel.Designer.vb">
+      <DependentUpon>BuscarHotel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BuscarHotel.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Login.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,12 @@
       <DependentUpon>Modificar.vb</DependentUpon>
     </Compile>
     <Compile Include="Modificar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModificarHotel.Designer.vb">
+      <DependentUpon>ModificarHotel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarHotel.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -155,11 +167,17 @@
     <EmbeddedResource Include="Buscar.resx">
       <DependentUpon>Buscar.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BuscarHotel.resx">
+      <DependentUpon>BuscarHotel.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modificar.resx">
       <DependentUpon>Modificar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModificarHotel.resx">
+      <DependentUpon>ModificarHotel.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
