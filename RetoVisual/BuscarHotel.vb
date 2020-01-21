@@ -54,8 +54,70 @@ Public Class BuscarHotel
     End Sub
 
     Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
-        cnn = New MySqlConnection(cadenaconexion)
-        sql = "SELECT * FROM reserva WHERE Fk_IdEsta like " & Me.DataGridView1.CurrentRow.Cells.Item(0).Value & ""
 
+
+        cnn = New MySqlConnection(cadenaconexion)
+        'sql = "SELECT * FROM reserva WHERE Fk_IdEsta like '" & Me.DataGridView1.CurrentRow.Cells.Item(0).Value & "'"
+        sql = "SELECT * FROM cliente"
+        Dim cmd As New MySqlCommand(sql, cnn)
+
+        Dim dialog As New Form With {
+          .FormBorderStyle = FormBorderStyle.None,
+          .BackColor = Color.White,
+          .Size = New Size(800, 800)
+          }
+        Dim texto As New ListView() With {
+            .Name = "ListView1",
+            .Size = New Size(500, 500)
+        }
+
+        Dim cancelar As New Button() With {
+            .Text = "Atras",
+            .Location = New Point(250, 600),
+            .Size = New Size(100, 100)
+            }
+
+        AddHandler cancelar.Click, Sub(sender, args) 
+        dialog.Close()
+                                   End Sub
+
+
+        Try
+            cnn.Open()
+            Dim resultado As MySqlDataReader
+            resultado = cmd.ExecuteReader
+            texto.Clear()
+            texto.GridLines = True
+            texto.View = View.Details
+            texto.Columns.Add(resultado.GetName(0), 90, HorizontalAlignment.Left)
+            texto.Columns.Add(resultado.GetName(1), 90, HorizontalAlignment.Left)
+            texto.Columns.Add(resultado.GetName(2), 90, HorizontalAlignment.Left)
+            texto.Columns.Add(resultado.GetName(3), 90, HorizontalAlignment.Left)
+            texto.Columns.Add(resultado.GetName(4), 90, HorizontalAlignment.Left)
+            texto.Columns.Add(resultado.GetName(5), 90, HorizontalAlignment.Left)
+            texto.Columns.Add(resultado.GetName(6), 90, HorizontalAlignment.Left)
+            texto.Columns.Add(resultado.GetName(7), 90, HorizontalAlignment.Left)
+            Dim x As Integer
+            While resultado.Read
+                texto.Items.Add(resultado.Item(0))
+                texto.Items(x).SubItems.Add(resultado.Item(1))
+                texto.Items(x).SubItems.Add(resultado.Item(2))
+                texto.Items(x).SubItems.Add(resultado.Item(3))
+                texto.Items(x).SubItems.Add(resultado.Item(4))
+                texto.Items(x).SubItems.Add(resultado.Item(5))
+                texto.Items(x).SubItems.Add(resultado.Item(6))
+                texto.Items(x).SubItems.Add(resultado.Item(7))
+                x += 1
+            End While
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            If cnn.State = ConnectionState.Open Then
+                cnn.Close()
+            End If
+        End Try
+        dialog.Controls.Add(texto)
+        dialog.Controls.Add(cancelar)
+        dialog.ShowDialog()
     End Sub
 End Class
