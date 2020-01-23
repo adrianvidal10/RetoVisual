@@ -7,6 +7,21 @@ Public Class BuscarHotel
     Dim tipo As String
     Dim adap1 As MySqlDataAdapter
     Dim cadenaconexion As String = "server=192.168.106.14;database=retoethazi;user id=root2;password=root2;port=3306"
+    Dim dialog As New Form With {
+          .FormBorderStyle = FormBorderStyle.None,
+          .BackColor = Color.White,
+          .Size = New Size(800, 800)
+          }
+    Dim texto As New ListView() With {
+            .Name = "ListView1",
+            .Size = New Size(500, 500)
+        }
+
+    Dim cancelar As New Button() With {
+            .Text = "Atras",
+            .Location = New Point(250, 600),
+            .Size = New Size(100, 100)
+            }
 
     Private Sub BuscarHotel_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.ControlBox = False
@@ -29,7 +44,7 @@ Public Class BuscarHotel
             sql = "SELECT * FROM " & tipo & " ORDER BY Nombre"
         Else
             sql = "SELECT * FROM " & tipo & " WHERE Nombre like '" & txbBuscar.Text & "%' ORDER BY Nombre"
-            MsgBox(sql)
+
         End If
 
         Dim cmd As New MySqlCommand(sql, cnn)
@@ -52,35 +67,21 @@ Public Class BuscarHotel
         DataGridView1.Columns(8).Width = 100
 
     End Sub
+    Sub cerrar()
+        dialog.Close()
+    End Sub
 
     Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
 
 
         cnn = New MySqlConnection(cadenaconexion)
-        'sql = "SELECT * FROM reserva WHERE Fk_IdEsta like '" & Me.DataGridView1.CurrentRow.Cells.Item(0).Value & "'"
-        sql = "SELECT * FROM cliente"
+        sql = "SELECT * FROM reserva WHERE Fk_IdEsta like '" & Me.DataGridView1.CurrentRow.Cells.Item(0).Value & "'"
+
         Dim cmd As New MySqlCommand(sql, cnn)
 
-        Dim dialog As New Form With {
-          .FormBorderStyle = FormBorderStyle.None,
-          .BackColor = Color.White,
-          .Size = New Size(800, 800)
-          }
-        Dim texto As New ListView() With {
-            .Name = "ListView1",
-            .Size = New Size(500, 500)
-        }
 
-        Dim cancelar As New Button() With {
-            .Text = "Atras",
-            .Location = New Point(250, 600),
-            .Size = New Size(100, 100)
-            }
 
-        AddHandler cancelar.Click, Sub(sender, args) 
-        dialog.Close()
-                                   End Sub
-
+        AddHandler cancelar.Click, AddressOf cerrar
 
         Try
             cnn.Open()
