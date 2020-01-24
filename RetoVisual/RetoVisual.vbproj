@@ -122,6 +122,12 @@
     <Compile Include="BuscarReserva.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Fondo.Designer.vb">
+      <DependentUpon>Fondo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Fondo.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Login.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BuscarReserva.resx">
       <DependentUpon>BuscarReserva.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fondo.resx">
+      <DependentUpon>Fondo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.vb</DependentUpon>

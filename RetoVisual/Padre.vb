@@ -1,5 +1,5 @@
 ﻿Public Class Padre
-    Public f1 As New Alta
+    Public f1 As New Fondo
     Dim f2 As New Baja
     Dim f3 As New Modificar
     Dim f4 As New Buscar
@@ -9,6 +9,7 @@
     Dim f8 As New ModificarHotel
     Dim f9 As New BuscarHotel
     Dim f10 As New BuscarReserva
+    Dim f11 As New Alta
 
 
     Private Sub Padre_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -26,6 +27,7 @@
         f8.MdiParent = Me
         f9.MdiParent = Me
         f10.MdiParent = Me
+        f11.MdiParent = Me
 
 
         f1.WindowState = FormWindowState.Maximized
@@ -38,6 +40,7 @@
         f8.WindowState = FormWindowState.Maximized
         f9.WindowState = FormWindowState.Maximized
         f10.WindowState = FormWindowState.Maximized
+        f11.WindowState = FormWindowState.Maximized
 
 
         f1.Show()
@@ -62,6 +65,8 @@
             Me.BajaReservaToolStripMenuItem.PerformClick()
         ElseIf e.KeyCode = Keys.F10 Then
             Me.BajaReservaToolStripMenuItem.PerformClick()
+        ElseIf e.KeyCode = Keys.F11 Then
+            Me.AltaClienteToolStripMenuItem.PerformClick()
         ElseIf e.KeyCode = Keys.F1 Then
             f1.Show()
             f1.Activate()
@@ -71,8 +76,8 @@
     End Sub
 
     Private Sub AltaClienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AltaClienteToolStripMenuItem.Click
-        f1.Show()
-        f1.Activate()
+        f11.Show()
+        f11.Activate()
     End Sub
 
     Private Sub BajaClienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BajaClienteToolStripMenuItem.Click

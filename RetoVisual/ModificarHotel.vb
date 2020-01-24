@@ -80,6 +80,7 @@ Public Class ModificarHotel
             cnn.Open()
             resultado = cmd.ExecuteNonQuery()
             MsgBox("Actualizadas: " & resultado & "filas")
+            Fondo.Show()
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
