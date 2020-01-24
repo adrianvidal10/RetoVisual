@@ -28,6 +28,16 @@ Partial Class Padre
         Me.F4Form4ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AltaClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AltaEstablecimientoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BajaClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BajaEstablecimientoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BajaReservaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModificarClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModificarEstablecimientoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BuscarClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BuscarEstablecimientoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BuscarReservaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -42,18 +52,21 @@ Partial Class Padre
         '
         'F2Form2ToolStripMenuItem
         '
+        Me.F2Form2ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AltaClienteToolStripMenuItem, Me.AltaEstablecimientoToolStripMenuItem})
         Me.F2Form2ToolStripMenuItem.Name = "F2Form2ToolStripMenuItem"
         Me.F2Form2ToolStripMenuItem.Size = New System.Drawing.Size(40, 20)
         Me.F2Form2ToolStripMenuItem.Text = "Alta"
         '
         'F3Form3ToolStripMenuItem
         '
+        Me.F3Form3ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BajaClienteToolStripMenuItem, Me.BajaEstablecimientoToolStripMenuItem, Me.BajaReservaToolStripMenuItem})
         Me.F3Form3ToolStripMenuItem.Name = "F3Form3ToolStripMenuItem"
         Me.F3Form3ToolStripMenuItem.Size = New System.Drawing.Size(41, 20)
         Me.F3Form3ToolStripMenuItem.Text = "Baja"
         '
         'F4Form4ToolStripMenuItem
         '
+        Me.F4Form4ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ModificarClienteToolStripMenuItem, Me.ModificarEstablecimientoToolStripMenuItem})
         Me.F4Form4ToolStripMenuItem.Name = "F4Form4ToolStripMenuItem"
         Me.F4Form4ToolStripMenuItem.Size = New System.Drawing.Size(70, 20)
         Me.F4Form4ToolStripMenuItem.Text = "Modificar"
@@ -61,6 +74,7 @@ Partial Class Padre
         '
         'ToolStripMenuItem1
         '
+        Me.ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BuscarClienteToolStripMenuItem, Me.BuscarEstablecimientoToolStripMenuItem, Me.BuscarReservaToolStripMenuItem})
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
         Me.ToolStripMenuItem1.Size = New System.Drawing.Size(54, 20)
         Me.ToolStripMenuItem1.Text = "Buscar"
@@ -70,6 +84,66 @@ Partial Class Padre
         Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
         Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(41, 20)
         Me.SalirToolStripMenuItem.Text = "Salir"
+        '
+        'AltaClienteToolStripMenuItem
+        '
+        Me.AltaClienteToolStripMenuItem.Name = "AltaClienteToolStripMenuItem"
+        Me.AltaClienteToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
+        Me.AltaClienteToolStripMenuItem.Text = "Alta Cliente"
+        '
+        'AltaEstablecimientoToolStripMenuItem
+        '
+        Me.AltaEstablecimientoToolStripMenuItem.Name = "AltaEstablecimientoToolStripMenuItem"
+        Me.AltaEstablecimientoToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
+        Me.AltaEstablecimientoToolStripMenuItem.Text = "Alta Establecimiento"
+        '
+        'BajaClienteToolStripMenuItem
+        '
+        Me.BajaClienteToolStripMenuItem.Name = "BajaClienteToolStripMenuItem"
+        Me.BajaClienteToolStripMenuItem.Size = New System.Drawing.Size(183, 22)
+        Me.BajaClienteToolStripMenuItem.Text = "Baja Cliente"
+        '
+        'BajaEstablecimientoToolStripMenuItem
+        '
+        Me.BajaEstablecimientoToolStripMenuItem.Name = "BajaEstablecimientoToolStripMenuItem"
+        Me.BajaEstablecimientoToolStripMenuItem.Size = New System.Drawing.Size(183, 22)
+        Me.BajaEstablecimientoToolStripMenuItem.Text = "Baja Establecimiento"
+        '
+        'BajaReservaToolStripMenuItem
+        '
+        Me.BajaReservaToolStripMenuItem.Name = "BajaReservaToolStripMenuItem"
+        Me.BajaReservaToolStripMenuItem.Size = New System.Drawing.Size(183, 22)
+        Me.BajaReservaToolStripMenuItem.Text = "Baja Reserva"
+        '
+        'ModificarClienteToolStripMenuItem
+        '
+        Me.ModificarClienteToolStripMenuItem.Name = "ModificarClienteToolStripMenuItem"
+        Me.ModificarClienteToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
+        Me.ModificarClienteToolStripMenuItem.Text = "Modificar Cliente"
+        '
+        'ModificarEstablecimientoToolStripMenuItem
+        '
+        Me.ModificarEstablecimientoToolStripMenuItem.Name = "ModificarEstablecimientoToolStripMenuItem"
+        Me.ModificarEstablecimientoToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
+        Me.ModificarEstablecimientoToolStripMenuItem.Text = "Modificar Establecimiento"
+        '
+        'BuscarClienteToolStripMenuItem
+        '
+        Me.BuscarClienteToolStripMenuItem.Name = "BuscarClienteToolStripMenuItem"
+        Me.BuscarClienteToolStripMenuItem.Size = New System.Drawing.Size(196, 22)
+        Me.BuscarClienteToolStripMenuItem.Text = "Buscar Cliente"
+        '
+        'BuscarEstablecimientoToolStripMenuItem
+        '
+        Me.BuscarEstablecimientoToolStripMenuItem.Name = "BuscarEstablecimientoToolStripMenuItem"
+        Me.BuscarEstablecimientoToolStripMenuItem.Size = New System.Drawing.Size(196, 22)
+        Me.BuscarEstablecimientoToolStripMenuItem.Text = "Buscar Establecimiento"
+        '
+        'BuscarReservaToolStripMenuItem
+        '
+        Me.BuscarReservaToolStripMenuItem.Name = "BuscarReservaToolStripMenuItem"
+        Me.BuscarReservaToolStripMenuItem.Size = New System.Drawing.Size(196, 22)
+        Me.BuscarReservaToolStripMenuItem.Text = "Buscar Reserva"
         '
         'Padre
         '
@@ -92,4 +166,14 @@ Partial Class Padre
     Friend WithEvents F4Form4ToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents SalirToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AltaClienteToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AltaEstablecimientoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BajaClienteToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BajaEstablecimientoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BajaReservaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ModificarClienteToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ModificarEstablecimientoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BuscarClienteToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BuscarEstablecimientoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BuscarReservaToolStripMenuItem As ToolStripMenuItem
 End Class
