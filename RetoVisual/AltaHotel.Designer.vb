@@ -22,6 +22,7 @@ Partial Class AltaHotel
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.cmbtipo = New System.Windows.Forms.ComboBox()
         Me.btn = New System.Windows.Forms.Button()
         Me.txbLatitud = New System.Windows.Forms.TextBox()
@@ -44,6 +45,14 @@ Partial Class AltaHotel
         Me.Label9 = New System.Windows.Forms.Label()
         Me.txbWeb = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
+        Me.ErrorNombre = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.ErrorUbicacion = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.ErrorCapacidad = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.ErrorPrecio = New System.Windows.Forms.ErrorProvider(Me.components)
+        CType(Me.ErrorNombre, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ErrorUbicacion, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ErrorCapacidad, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ErrorPrecio, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cmbtipo
@@ -81,6 +90,7 @@ Partial Class AltaHotel
         'txbCategoria
         '
         Me.txbCategoria.Location = New System.Drawing.Point(389, 237)
+        Me.txbCategoria.MaxLength = 3
         Me.txbCategoria.Name = "txbCategoria"
         Me.txbCategoria.Size = New System.Drawing.Size(100, 20)
         Me.txbCategoria.TabIndex = 41
@@ -88,6 +98,7 @@ Partial Class AltaHotel
         'txbCapacidad
         '
         Me.txbCapacidad.Location = New System.Drawing.Point(389, 207)
+        Me.txbCapacidad.MaxLength = 3
         Me.txbCapacidad.Name = "txbCapacidad"
         Me.txbCapacidad.Size = New System.Drawing.Size(100, 20)
         Me.txbCapacidad.TabIndex = 40
@@ -188,7 +199,7 @@ Partial Class AltaHotel
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(582, 60)
+        Me.Label8.Location = New System.Drawing.Point(657, 60)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(39, 13)
         Me.Label8.TabIndex = 48
@@ -226,6 +237,22 @@ Partial Class AltaHotel
         Me.Label10.TabIndex = 52
         Me.Label10.Text = "Tipo de establecimiento :"
         '
+        'ErrorNombre
+        '
+        Me.ErrorNombre.ContainerControl = Me
+        '
+        'ErrorUbicacion
+        '
+        Me.ErrorUbicacion.ContainerControl = Me
+        '
+        'ErrorCapacidad
+        '
+        Me.ErrorCapacidad.ContainerControl = Me
+        '
+        'ErrorPrecio
+        '
+        Me.ErrorPrecio.ContainerControl = Me
+        '
         'AltaHotel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -255,6 +282,10 @@ Partial Class AltaHotel
         Me.Controls.Add(Me.lblDni)
         Me.Name = "AltaHotel"
         Me.Text = "AltaHotel"
+        CType(Me.ErrorNombre, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ErrorUbicacion, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ErrorCapacidad, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ErrorPrecio, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -282,4 +313,8 @@ Partial Class AltaHotel
     Friend WithEvents Label9 As Label
     Friend WithEvents txbWeb As TextBox
     Friend WithEvents Label10 As Label
+    Friend WithEvents ErrorNombre As ErrorProvider
+    Friend WithEvents ErrorUbicacion As ErrorProvider
+    Friend WithEvents ErrorCapacidad As ErrorProvider
+    Friend WithEvents ErrorPrecio As ErrorProvider
 End Class
