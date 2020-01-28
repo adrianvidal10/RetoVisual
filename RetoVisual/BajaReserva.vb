@@ -8,6 +8,7 @@ Public Class BajaReserva
     Dim adap1 As MySqlDataAdapter
     Dim cadenaconexion As String = "server=192.168.106.14;database=retoethazi;user id=root2;password=root2;port=3306"
     Private Sub BajaReserva_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.cmbtipo.SelectedIndex = 1
         Me.ControlBox = False
         Dim coon As New MySqlConnection(cadenaconexion)
         Try
@@ -94,7 +95,7 @@ Public Class BajaReserva
                 DataGridView1.Columns(5).Width = 60
                 DataGridView1.Columns(6).Width = 100
                 DataGridView1.Columns(7).Width = 200
-                
+
             Catch ex As Exception
                 MsgBox(ex.Message)
             Finally
@@ -102,6 +103,7 @@ Public Class BajaReserva
                     cnn.Close()
                 End If
             End Try
+            Padre.Show()
         End If
     End Sub
 End Class

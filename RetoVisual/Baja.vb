@@ -24,6 +24,7 @@ Public Class Baja
         das1 = New DataSet
 
         adap1.Fill(das1, "cliente")
+        Me.Label2.Text = "Numero de filas: " & das1.Tables("cliente").Rows.Count
         Me.DataGridView1.DataSource = das1.Tables("cliente")
         DataGridView1.Columns(0).Width = 60
         DataGridView1.Columns(1).Width = 100
@@ -52,6 +53,7 @@ Public Class Baja
             cnn.Open()
             Dim resultado As MySqlDataReader
             resultado = cmd.ExecuteReader
+            Me.Label2.Text = "Numero de filas: " & das1.Tables("cliente").Rows.Count
             Me.DataGridView1.DataSource = das1.Tables("cliente")
             DataGridView1.Columns(0).Width = 60
             DataGridView1.Columns(1).Width = 60
@@ -108,8 +110,8 @@ Public Class Baja
                     cnn.Close()
                 End If
             End Try
-
-
+            Me.Close()
+            Padre.Show()
         End If
     End Sub
 End Class

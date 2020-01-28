@@ -22,13 +22,13 @@ Partial Class ModificarHotel
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.cmbtipo = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
         Me.txbWeb = New System.Windows.Forms.TextBox()
         Me.txbLongitud = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -45,13 +45,22 @@ Partial Class ModificarHotel
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.lblDni = New System.Windows.Forms.Label()
+        Me.ErrorNombre = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.ErrorUbicacion = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.ErrorCapacidad = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.ErrorPrecio = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.Label8 = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ErrorNombre, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ErrorUbicacion, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ErrorCapacidad, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ErrorPrecio, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DataGridView1
         '
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(12, 104)
         Me.DataGridView1.Name = "DataGridView1"
@@ -92,15 +101,6 @@ Partial Class ModificarHotel
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(0, 13)
         Me.Label1.TabIndex = 98
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(49, 88)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(39, 13)
-        Me.Label8.TabIndex = 99
-        Me.Label8.Text = "Label8"
         '
         'txbWeb
         '
@@ -230,11 +230,37 @@ Partial Class ModificarHotel
         Me.lblDni.TabIndex = 100
         Me.lblDni.Text = "Nombre :"
         '
+        'ErrorNombre
+        '
+        Me.ErrorNombre.ContainerControl = Me
+        '
+        'ErrorUbicacion
+        '
+        Me.ErrorUbicacion.ContainerControl = Me
+        '
+        'ErrorCapacidad
+        '
+        Me.ErrorCapacidad.ContainerControl = Me
+        '
+        'ErrorPrecio
+        '
+        Me.ErrorPrecio.ContainerControl = Me
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(27, 88)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(39, 13)
+        Me.Label8.TabIndex = 116
+        Me.Label8.Text = "Label8"
+        '
         'ModificarHotel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 672)
+        Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.txbWeb)
         Me.Controls.Add(Me.txbLongitud)
         Me.Controls.Add(Me.Label2)
@@ -251,7 +277,6 @@ Partial Class ModificarHotel
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.lblDni)
-        Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.cmbtipo)
@@ -260,6 +285,10 @@ Partial Class ModificarHotel
         Me.Name = "ModificarHotel"
         Me.Text = "ModificarHotel"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ErrorNombre, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ErrorUbicacion, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ErrorCapacidad, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ErrorPrecio, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -270,7 +299,6 @@ Partial Class ModificarHotel
     Friend WithEvents Label10 As Label
     Friend WithEvents cmbtipo As ComboBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents Label8 As Label
     Friend WithEvents txbWeb As TextBox
     Friend WithEvents txbLongitud As TextBox
     Friend WithEvents Label2 As Label
@@ -287,4 +315,9 @@ Partial Class ModificarHotel
     Friend WithEvents Label3 As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents lblDni As Label
+    Friend WithEvents ErrorNombre As ErrorProvider
+    Friend WithEvents ErrorUbicacion As ErrorProvider
+    Friend WithEvents ErrorCapacidad As ErrorProvider
+    Friend WithEvents ErrorPrecio As ErrorProvider
+    Friend WithEvents Label8 As Label
 End Class

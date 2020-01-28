@@ -27,6 +27,7 @@ Partial Class Baja
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.FileSystemWatcher1 = New System.IO.FileSystemWatcher()
+        Me.Label2 = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FileSystemWatcher1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -69,11 +70,21 @@ Partial Class Baja
         Me.FileSystemWatcher1.EnableRaisingEvents = True
         Me.FileSystemWatcher1.SynchronizingObject = Me
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(21, 77)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(39, 13)
+        Me.Label2.TabIndex = 12
+        Me.Label2.Text = "Label2"
+        '
         'Baja
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.btnBuscar)
         Me.Controls.Add(Me.Label1)
@@ -91,4 +102,5 @@ Partial Class Baja
     Friend WithEvents btnBuscar As Button
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents FileSystemWatcher1 As IO.FileSystemWatcher
+    Friend WithEvents Label2 As Label
 End Class

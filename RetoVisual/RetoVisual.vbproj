@@ -122,6 +122,7 @@
     <Compile Include="BuscarReserva.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Encriptar.vb" />
     <Compile Include="Fondo.Designer.vb">
       <DependentUpon>Fondo.vb</DependentUpon>
     </Compile>

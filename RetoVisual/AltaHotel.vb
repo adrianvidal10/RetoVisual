@@ -6,7 +6,11 @@ Public Class AltaHotel
     Dim resultado As Integer
     Dim cadenaconexion As String = "server=192.168.106.14;database=retoethazi;user id=root2;password=root2;port=3306"
     Private Sub AltaHotel_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        cmbtipo.SelectedValue = "1"
+        cmbtipo.SelectedIndex = 0
+        Me.MaskedTextBoxNombre.Mask = "?????????????????"
+        Me.MaskedTextBoxUbicacion.Mask = "?????????????????"
+        Me.MaskedTextBoxPrecio.Mask = "0000,00€"
+
         Me.ControlBox = False
         Dim coon As New MySqlConnection(cadenaconexion)
         Try
@@ -33,12 +37,12 @@ Public Class AltaHotel
 
         Dim cmd As New MySqlCommand(sql, cnn)
         cmd.Parameters.AddWithValue("@id", Me.txbId.Text)
-        cmd.Parameters.AddWithValue("@nombre", Me.txbNombre.Text)
-        cmd.Parameters.AddWithValue("@ubicacion", Me.txbUbicacion.Text)
-        cmd.Parameters.AddWithValue("@capacidad", Me.txbCapacidad.Text)
-        cmd.Parameters.AddWithValue("@categoria", Me.txbCapacidad.Text)
+        cmd.Parameters.AddWithValue("@nombre", Me.MaskedTextBoxNombre.Text)
+        cmd.Parameters.AddWithValue("@ubicacion", Me.MaskedTextBoxUbicacion.Text)
+        cmd.Parameters.AddWithValue("@capacidad", Me.tx_Capacidad.Text)
+        cmd.Parameters.AddWithValue("@categoria", Me.tx_Categoria.Text)
         cmd.Parameters.AddWithValue("@web", Me.txbWeb.Text)
-        cmd.Parameters.AddWithValue("@precio", Me.txbPrecio.Text)
+        cmd.Parameters.AddWithValue("@precio", Me.MaskedTextBoxPrecio.Text)
         cmd.Parameters.AddWithValue("@latitud", Me.txbLatitud.Text)
         cmd.Parameters.AddWithValue("@longitud", Me.txbLongitud.Text)
         Try
@@ -52,24 +56,26 @@ Public Class AltaHotel
                 cnn.Close()
             End If
         End Try
+        Me.Close()
+        Padre.Show()
     End Sub
-    Private Sub txbUbicacion_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txbUbicacion.KeyPress
+    Private Sub txbUbicacion_KeyPress(sender As Object, e As KeyPressEventArgs)
         If IsNumeric(e.KeyChar) Then
             e.Handled = True
         End If
     End Sub
-    Private Sub txbCapacidad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txbCapacidad.KeyPress
+    Private Sub txbCapacidad_KeyPress(sender As Object, e As KeyPressEventArgs)
         If Not IsNumeric(e.KeyChar) Then
             e.Handled = True
         End If
     End Sub
-    Private Sub txbPrecio_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txbPrecio.KeyPress
+    Private Sub txbPrecio_KeyPress(sender As Object, e As KeyPressEventArgs)
         If Not IsNumeric(e.KeyChar) Then
             e.Handled = True
         End If
     End Sub
 
-    Private Sub txbNombre_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txbNombre.KeyPress
+    Private Sub txbNombre_KeyPress(sender As Object, e As KeyPressEventArgs)
         If IsNumeric(e.KeyChar) Then
             e.Handled = True
         End If
@@ -86,7 +92,7 @@ Public Class AltaHotel
         End If
     End Sub
 
-    Private Sub txbNombre_Validating(sender As Object, e As CancelEventArgs) Handles txbNombre.Validating
+    Private Sub txbNombre_Validating(sender As Object, e As CancelEventArgs)
         If DirectCast(sender, TextBox).Text.Length > 0 Then
             Me.ErrorNombre.SetError(sender, "")
         Else

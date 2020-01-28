@@ -1,4 +1,5 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports System.ComponentModel
+Imports MySql.Data.MySqlClient
 Public Class ModificarHotel
     Dim cnn As MySqlConnection
     Dim das1 As DataSet
@@ -10,6 +11,7 @@ Public Class ModificarHotel
 
     Private Sub ModificarHotel_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.ControlBox = False
+
         Dim coon As New MySqlConnection(cadenaconexion)
         Try
             coon.Open()
@@ -66,7 +68,6 @@ Public Class ModificarHotel
 
 
         sql = "UPDATE " & tipo & " SET Nombre=@nombre, Ubicacion=@ubicacion, Capacidad=@capacidad, Categoria=@categoria, Web=@web, Precio=@precio,Latitud=@latitud,Longitud=@longitud WHERE Nombre like '" & Me.DataGridView1.CurrentRow.Cells.Item(1).Value & "'"
-        MsgBox(sql)
         Dim cmd As New MySqlCommand(sql, cnn)
         cmd.Parameters.AddWithValue("@nombre", Me.txbNombre.Text)
         cmd.Parameters.AddWithValue("@ubicacion", Me.txbUbicacion.Text)
@@ -80,7 +81,6 @@ Public Class ModificarHotel
             cnn.Open()
             resultado = cmd.ExecuteNonQuery()
             MsgBox("Actualizadas: " & resultado & "filas")
-            Fondo.Show()
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
@@ -88,5 +88,71 @@ Public Class ModificarHotel
                 cnn.Close()
             End If
         End Try
+        Me.Close()
+        Padre.Show()
+    End Sub
+    Private Sub txbUbicacion_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txbUbicacion.KeyPress
+        If IsNumeric(e.KeyChar) Then
+            e.Handled = True
+        End If
+    End Sub
+    Private Sub txbCapacidad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txbCapacidad.KeyPress
+        If Not IsNumeric(e.KeyChar) Then
+            e.Handled = True
+        End If
+    End Sub
+    Private Sub txbPrecio_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txbPrecio.KeyPress
+        If Not IsNumeric(e.KeyChar) Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub txbNombre_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txbNombre.KeyPress
+        If IsNumeric(e.KeyChar) Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub txbLatitud_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txbLatitud.KeyPress
+        If Not IsNumeric(e.KeyChar) Then
+            e.Handled = True
+        End If
+    End Sub
+    Private Sub txbLongitud_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txbLongitud.KeyPress
+        If Not IsNumeric(e.KeyChar) Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub txbNombre_Validating(sender As Object, e As CancelEventArgs) Handles txbNombre.Validating
+        If DirectCast(sender, TextBox).Text.Length > 0 Then
+            Me.ErrorNombre.SetError(sender, "")
+        Else
+            Me.ErrorNombre.SetError(sender, "Ingrese el nombre del usuario, este dato es obligatorio")
+        End If
+    End Sub
+
+    Private Sub lblUbicacion_Validating(sender As Object, e As CancelEventArgs) Handles Label2.Validating
+        If DirectCast(sender, TextBox).Text.Length > 0 Then
+            Me.ErrorUbicacion.SetError(sender, "")
+        Else
+            Me.ErrorUbicacion.SetError(sender, "Ingrese la ubicacion, este dato es obligatorio")
+        End If
+    End Sub
+
+    Private Sub txbCapacidad_Validating(sender As Object, e As CancelEventArgs) Handles Label3.Validating
+        If DirectCast(sender, TextBox).Text.Length > 0 Then
+            Me.ErrorCapacidad.SetError(sender, "")
+        Else
+            Me.ErrorCapacidad.SetError(sender, "Ingrese la capacidad, este dato es obligatorio")
+        End If
+    End Sub
+
+    Private Sub txbPrecio_Validating(sender As Object, e As CancelEventArgs) Handles Label6.Validating
+        If DirectCast(sender, TextBox).Text.Length > 0 Then
+            Me.ErrorPrecio.SetError(sender, "")
+        Else
+            Me.ErrorPrecio.SetError(sender, "Ingrese el precio por noche, este dato es obligatorio")
+        End If
     End Sub
 End Class

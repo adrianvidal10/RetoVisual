@@ -25,6 +25,7 @@ Public Class BuscarHotel
 
     Private Sub BuscarHotel_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.ControlBox = False
+        cmbtipo.SelectedIndex = 1
         Dim coon As New MySqlConnection(cadenaconexion)
         Try
             coon.Open()

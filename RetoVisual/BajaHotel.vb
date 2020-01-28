@@ -18,7 +18,6 @@ Public Class BajaHotel
             sql = "SELECT * FROM " & tipo & " ORDER BY Nombre"
         Else
             sql = "SELECT * FROM " & tipo & " WHERE Nombre like '" & txbBuscar.Text & "%' ORDER BY Nombre"
-            MsgBox(sql)
         End If
 
         Dim cmd As New MySqlCommand(sql, cnn)
@@ -80,5 +79,9 @@ Public Class BajaHotel
                 End If
             End Try
         End If
+    End Sub
+
+    Private Sub BajaHotel_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        cmbtipo.SelectedIndex = 1
     End Sub
 End Class
