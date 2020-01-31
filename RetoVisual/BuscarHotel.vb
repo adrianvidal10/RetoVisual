@@ -73,17 +73,21 @@ Public Class BuscarHotel
     End Sub
 
     Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
-        Dim extension
+        Dim extension As String
+        Dim condicion As String
         If cmbtipo.Text = "alojamiento" Then
             extension = "_alo"
+            condicion = "Fk_IdAlo"
         ElseIf cmbtipo.Text = "albergue" Then
             extension = "_alb"
+            condicion = "Fk_IdAlb"
         ElseIf cmbtipo.Text = "camping" Then
             extension = "_camping"
+            condicion = "Fk_IdCamp"
         End If
 
         cnn = New MySqlConnection(cadenaconexion)
-        sql = "SELECT * FROM reserva" & extension & " WHERE Fk_IdEsta like '" & Me.DataGridView1.CurrentRow.Cells.Item(0).Value & "'"
+        sql = "SELECT * FROM reserva" & extension & " WHERE " & condicion & " like '" & Me.DataGridView1.CurrentRow.Cells.Item(0).Value & "'"
         MsgBox(sql)
         Dim cmd As New MySqlCommand(sql, cnn)
 

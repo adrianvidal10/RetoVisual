@@ -7,7 +7,7 @@ Public Class Alta
     Dim cadenaconexion As String = "server=192.168.106.14;database=retoethazi;user id=root2;password=root2;port=3306"
     Private Sub Alta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.ControlBox = False
-        Me.MaskedTextBox1.Mask = "?????????"
+        Me.MaskedTextBox1.Mask = "00000000?"
         Me.MaskedTextBoxNombre.Mask = "?????????????????"
         Me.MaskedTextBoxApellido.Mask = "?????????????????"
         Me.MaskedTextBoxEdad.Mask = "00"
@@ -28,7 +28,7 @@ Public Class Alta
         If txtContrasena.Text = txtConfirmarContrasena.Text Then
 
             cnn = New MySqlConnection(cadenaconexion)
-            sql = "INSERT INTO cliente (Dni,Nombre,Apellido,Edad,Sexo,Telefono,Gmail) values (@dni,@nombre,@apellido,@edad,@sexo,@telefono,@gmail)"
+            sql = "INSERT INTO cliente (Dni,Nombre,Apellido,Edad,Sexo,Telefono,Gmail,contrasena) values (@dni,@nombre,@apellido,@edad,@sexo,@telefono,@gmail,@contrasena)"
             Dim cmd As New MySqlCommand(sql, cnn)
             cmd.Parameters.AddWithValue("@dni", Me.MaskedTextBox1.Text)
             cmd.Parameters.AddWithValue("@nombre", Me.MaskedTextBoxNombre.Text)
@@ -37,7 +37,7 @@ Public Class Alta
             cmd.Parameters.AddWithValue("@sexo", Me.cmbSexo.Text)
             cmd.Parameters.AddWithValue("@telefono", Me.MaskedTextBoxTelefono.Text)
             cmd.Parameters.AddWithValue("@gmail", Me.MaskedTextBoxGmail.Text)
-
+            cmd.Parameters.AddWithValue("@contrasena", Me.txtContrasena.Text)
             Try
                 cnn.Open()
                 resultado = cmd.ExecuteNonQuery()
@@ -55,8 +55,7 @@ Public Class Alta
             Me.txtConfirmarContrasena.Text = ""
             Me.txtContrasena.Focus()
         End If
-        Me.Close()
-        Padre.Show()
+
     End Sub
     Private Sub txbEdad_KeyPress(sender As Object, e As KeyPressEventArgs)
         If Not IsNumeric(e.KeyChar) Then

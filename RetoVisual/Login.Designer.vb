@@ -31,42 +31,48 @@ Partial Class Login
         '
         'btnLogin
         '
-        Me.btnLogin.Location = New System.Drawing.Point(339, 264)
+        Me.btnLogin.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLogin.Location = New System.Drawing.Point(315, 261)
         Me.btnLogin.Name = "btnLogin"
-        Me.btnLogin.Size = New System.Drawing.Size(129, 30)
+        Me.btnLogin.Size = New System.Drawing.Size(184, 38)
         Me.btnLogin.TabIndex = 9
         Me.btnLogin.Text = "Iniciar Sesion"
         Me.btnLogin.UseVisualStyleBackColor = True
         '
         'txbContrasena
         '
+        Me.txbContrasena.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txbContrasena.Location = New System.Drawing.Point(391, 209)
         Me.txbContrasena.Name = "txbContrasena"
-        Me.txbContrasena.Size = New System.Drawing.Size(100, 20)
+        Me.txbContrasena.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.txbContrasena.Size = New System.Drawing.Size(159, 32)
         Me.txbContrasena.TabIndex = 8
         '
         'txbDni
         '
+        Me.txbDni.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txbDni.Location = New System.Drawing.Point(391, 157)
         Me.txbDni.Name = "txbDni"
-        Me.txbDni.Size = New System.Drawing.Size(100, 20)
+        Me.txbDni.Size = New System.Drawing.Size(159, 32)
         Me.txbDni.TabIndex = 7
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(310, 216)
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(242, 209)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(67, 13)
+        Me.Label2.Size = New System.Drawing.Size(136, 26)
         Me.Label2.TabIndex = 6
         Me.Label2.Text = "Contraseña :"
         '
         'lblUsuario
         '
         Me.lblUsuario.AutoSize = True
+        Me.lblUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUsuario.Location = New System.Drawing.Point(310, 157)
         Me.lblUsuario.Name = "lblUsuario"
-        Me.lblUsuario.Size = New System.Drawing.Size(35, 13)
+        Me.lblUsuario.Size = New System.Drawing.Size(68, 26)
         Me.lblUsuario.TabIndex = 5
         Me.lblUsuario.Text = "DNI  :"
         '
