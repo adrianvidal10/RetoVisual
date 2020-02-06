@@ -9,7 +9,7 @@ Public Class BajaHotel
 
     Dim cadenaconexion As String = "server=192.168.106.14;database=retoethazi;user id=root2;password=root2;port=3306"
     Private Sub BtnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
-
+        DataGridView1.DefaultCellStyle.Font = New Font("Microsoft Sans Serif", 16)
         cnn = New MySqlConnection(cadenaconexion)
         Dim tipo As String
         tipo = cmbtipo.Text

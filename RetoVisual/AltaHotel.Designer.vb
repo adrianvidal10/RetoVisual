@@ -66,9 +66,10 @@ Partial Class AltaHotel
         '
         'btn
         '
-        Me.btn.Location = New System.Drawing.Point(389, 422)
+        Me.btn.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn.Location = New System.Drawing.Point(317, 407)
         Me.btn.Name = "btn"
-        Me.btn.Size = New System.Drawing.Size(75, 23)
+        Me.btn.Size = New System.Drawing.Size(160, 37)
         Me.btn.TabIndex = 44
         Me.btn.Text = "Registrar"
         Me.btn.UseVisualStyleBackColor = True
@@ -269,6 +270,7 @@ Partial Class AltaHotel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.InactiveCaption
         Me.ClientSize = New System.Drawing.Size(823, 541)
         Me.Controls.Add(Me.tx_Categoria)
         Me.Controls.Add(Me.tx_Capacidad)
@@ -294,6 +296,7 @@ Partial Class AltaHotel
         Me.Controls.Add(Me.lblDni)
         Me.Name = "AltaHotel"
         Me.Text = "AltaHotel"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.ErrorNombre, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorUbicacion, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorCapacidad, System.ComponentModel.ISupportInitialize).EndInit()

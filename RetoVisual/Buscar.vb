@@ -6,9 +6,14 @@ Public Class Buscar
     Dim sql2 As String
     Dim das1 As DataSet
     Dim das2 As DataSet
+    Dim das3 As DataSet
     Dim adap1 As MySqlDataAdapter
+    Dim adap3 As MySqlDataAdapter
+    Dim cmd3 As MySqlCommand
     Dim cadenaconexion As String = "server=192.168.106.14;database=retoethazi;user id=root2;password=root2;port=3306"
     Private Sub Buscar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        DataGridView1.DefaultCellStyle.Font = New Font("Microsoft Sans Serif", 16)
+        DataGridView2.DefaultCellStyle.Font = New Font("Microsoft Sans Serif", 16)
         Me.ControlBox = False
         Dim coon As New MySqlConnection(cadenaconexion)
 
@@ -65,36 +70,33 @@ Public Class Buscar
     Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
         DataGridView2.Visible = True
         cnn = New MySqlConnection(cadenaconexion)
-        Dim eleccion As String = Nothing
-        If cmbtipo.Text = "alojamiento" Then
-            eleccion = "reserva_alo"
-        ElseIf cmbtipo.Text = "albergue" Then
-            eleccion = "reserva_alb"
-        ElseIf cmbtipo.Text = "camping" Then
-            eleccion = "reserva_camp"
-        End If
-        sql2 = "SELECT * FROM " & eleccion & " WHERE Fk_IdCliente = " & Me.DataGridView1.CurrentRow.Cells.Item(0).Value & ""
-        MsgBox(sql2)
+
+        sql2 = "SELECT * FROM reservas WHERE Fk_IdCliente = " & Me.DataGridView1.CurrentRow.Cells.Item(0).Value & ""
+
+        Dim a As String = Me.DataGridView1.CurrentRow.Cells.Item(0).Value
+        Me.Label3.Text = "El precio de todas las reservas es: " & calcular(a) & "€"
+
         Dim cmd1 As New MySqlCommand(sql2, cnn)
-        das2 = New DataSet
+        Dim das9 As New DataSet()
+        Dim adap9 As New MySqlDataAdapter(cmd1)
+
 
         Try
-            cnn.Open()
-            Dim resultado As MySqlDataReader
-            resultado = cmd1.ExecuteReader
+            'cnn.Open()
+            'Dim resultado As MySqlDataReader
+            'resultado = cmd1.ExecuteReader
 
-            adap1.Fill(das2, "reserva")
-            Me.DataGridView2.DataSource = das2.Tables("reserva")
-            DataGridView2.Columns(0).Width = 60
-            DataGridView2.Columns(1).Width = 60
-            DataGridView2.Columns(2).Width = 60
-            DataGridView2.Columns(3).Width = 60
-            DataGridView2.Columns(4).Width = 60
-            DataGridView2.Columns(5).Width = 60
-            DataGridView2.Columns(6).Width = 60
-            DataGridView2.Columns(7).Width = 100
+            adap9.Fill(das9, "aaa")
 
-
+            'DataGridView2.Columns(0).Width = 60
+            'DataGridView2.Columns(1).Width = 60
+            'DataGridView2.Columns(2).Width = 60
+            'DataGridView2.Columns(3).Width = 60
+            'DataGridView2.Columns(4).Width = 60
+            'DataGridView2.Columns(5).Width = 60
+            'DataGridView2.Columns(6).Width = 60
+            'DataGridView2.Columns(7).Width = 100
+            Me.DataGridView2.DataSource = das9.Tables("aaa")
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
@@ -103,4 +105,41 @@ Public Class Buscar
             End If
         End Try
     End Sub
+
+    Private Sub DataGridView2_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView2.CellClick
+        Dim total As Double
+        Dim x As Integer = 1
+        Dim fecha1, fecha2 As Date
+        Dim difFecha As Integer
+        fecha1 = Convert.ToDateTime(Me.das3.Tables("reserva").Rows(X).Item("fecha_ini"))
+        fecha2 = Convert.ToDateTime(Me.das3.Tables("reserva").Rows(X).Item("FechaFin"))
+        difFecha = DateDiff(DateInterval.Day, fecha1, fecha2)
+        total += Me.das3.Tables("reserva").Rows(x).Item("Precio") * Me.das3.Tables("reserva").Rows(x).Item("Habitaciones") * difFecha
+        Me.Label3.Text = "El valor de esta reserva es: " & total & "€"
+    End Sub
+
+    Function calcular(a As String) As Double
+        Dim total As Double
+        Dim x As Integer
+        Dim fecha1, fecha2 As Date
+        Dim difFecha As Integer
+
+        das3 = New DataSet
+        Try
+            cmd3 = New MySqlCommand("Select * from reservas where Fk_IdCliente =" & a, cnn)
+            adap3 = New MySqlDataAdapter(cmd3)
+            adap3.Fill(das3, "reserva")
+
+            For x = 0 To Me.das3.Tables("reserva").Rows.Count - 1
+                fecha1 = Convert.ToDateTime(Me.das3.Tables("reserva").Rows(x).Item("fecha_ini"))
+                fecha2 = Convert.ToDateTime(Me.das3.Tables("reserva").Rows(x).Item("FechaFin"))
+                difFecha = DateDiff(DateInterval.Day, fecha1, fecha2)
+                total += Me.das3.Tables("reserva").Rows(x).Item("Precio") * Me.das3.Tables("reserva").Rows(x).Item("Habitaciones") * difFecha
+            Next
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        Return total
+    End Function
 End Class

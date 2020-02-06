@@ -15,6 +15,7 @@ Public Class Modificar
         Dim sql As String = "SELECT * FROM cliente"
         Dim cmd1 As New MySqlCommand(sql, coon)
 
+        DataGridView1.DefaultCellStyle.Font = New Font("Microsoft Sans Serif", 16)
         adap1 = New MySqlDataAdapter(cmd1)
         das1 = New DataSet
         adap1.Fill(das1, "cliente")

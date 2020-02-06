@@ -52,11 +52,13 @@ Partial Class Fondo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.InactiveCaption
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Name = "Fondo"
         Me.Text = "Fondo"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

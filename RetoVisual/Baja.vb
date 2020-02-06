@@ -8,6 +8,7 @@ Public Class Baja
     Dim cadenaconexion As String = "server=192.168.106.14;database=retoethazi;user id=root2;password=root2;port=3306"
     Private Sub Baja_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.ControlBox = False
+        DataGridView1.DefaultCellStyle.Font = New Font("Microsoft Sans Serif", 16)
         Dim coon As New MySqlConnection(cadenaconexion)
         'Try
         '    coon.Open()

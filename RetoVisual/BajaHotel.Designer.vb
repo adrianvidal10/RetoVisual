@@ -29,22 +29,26 @@ Partial Class BajaHotel
         Me.Label10 = New System.Windows.Forms.Label()
         Me.cmbtipo = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DataGridView1
         '
+        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 130)
+        Me.DataGridView1.Location = New System.Drawing.Point(15, 198)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(776, 230)
+        Me.DataGridView1.Size = New System.Drawing.Size(1433, 737)
         Me.DataGridView1.TabIndex = 15
         '
         'btnBuscar
         '
-        Me.btnBuscar.Location = New System.Drawing.Point(499, 101)
+        Me.btnBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnBuscar.Location = New System.Drawing.Point(498, 141)
         Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(75, 23)
+        Me.btnBuscar.Size = New System.Drawing.Size(147, 39)
         Me.btnBuscar.TabIndex = 14
         Me.btnBuscar.Text = "Buscar"
         Me.btnBuscar.UseVisualStyleBackColor = True
@@ -52,50 +56,67 @@ Partial Class BajaHotel
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(284, 106)
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(200, 149)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(46, 13)
+        Me.Label1.Size = New System.Drawing.Size(92, 26)
         Me.Label1.TabIndex = 13
         Me.Label1.Text = "Buscar: "
         '
         'txbBuscar
         '
-        Me.txbBuscar.Location = New System.Drawing.Point(336, 103)
+        Me.txbBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txbBuscar.Location = New System.Drawing.Point(298, 148)
         Me.txbBuscar.Name = "txbBuscar"
-        Me.txbBuscar.Size = New System.Drawing.Size(143, 20)
+        Me.txbBuscar.Size = New System.Drawing.Size(179, 32)
         Me.txbBuscar.TabIndex = 12
         '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(301, 63)
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(173, 100)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(125, 13)
+        Me.Label10.Size = New System.Drawing.Size(253, 26)
         Me.Label10.TabIndex = 54
         Me.Label10.Text = "Tipo de establecimiento :"
         '
         'cmbtipo
         '
+        Me.cmbtipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbtipo.FormattingEnabled = True
         Me.cmbtipo.Items.AddRange(New Object() {"alojamiento", "albergue", "camping"})
-        Me.cmbtipo.Location = New System.Drawing.Point(432, 60)
+        Me.cmbtipo.Location = New System.Drawing.Point(432, 97)
         Me.cmbtipo.Name = "cmbtipo"
-        Me.cmbtipo.Size = New System.Drawing.Size(100, 21)
+        Me.cmbtipo.Size = New System.Drawing.Size(243, 33)
         Me.cmbtipo.TabIndex = 53
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(12, 111)
+        Me.Label2.Location = New System.Drawing.Point(12, 148)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(0, 13)
         Me.Label2.TabIndex = 55
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.Color.Red
+        Me.Label8.Location = New System.Drawing.Point(199, 32)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(435, 39)
+        Me.Label8.TabIndex = 56
+        Me.Label8.Text = "BAJA ESTABLECIMIENTO"
         '
         'BajaHotel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.InactiveCaption
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.cmbtipo)
@@ -105,6 +126,7 @@ Partial Class BajaHotel
         Me.Controls.Add(Me.txbBuscar)
         Me.Name = "BajaHotel"
         Me.Text = "BajaHotel"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -118,4 +140,5 @@ Partial Class BajaHotel
     Friend WithEvents Label10 As Label
     Friend WithEvents cmbtipo As ComboBox
     Friend WithEvents Label2 As Label
+    Friend WithEvents Label8 As Label
 End Class

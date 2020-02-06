@@ -50,6 +50,7 @@ Partial Class ModificarHotel
         Me.ErrorCapacidad = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.ErrorPrecio = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorNombre, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorUbicacion, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -61,17 +62,20 @@ Partial Class ModificarHotel
         '
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 104)
+        Me.DataGridView1.Location = New System.Drawing.Point(74, 107)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(776, 221)
+        Me.DataGridView1.Size = New System.Drawing.Size(1393, 333)
         Me.DataGridView1.TabIndex = 95
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(321, 517)
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(669, 639)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(117, 44)
+        Me.Button1.Size = New System.Drawing.Size(212, 44)
         Me.Button1.TabIndex = 94
         Me.Button1.Text = "Modificar"
         Me.Button1.UseVisualStyleBackColor = True
@@ -79,154 +83,172 @@ Partial Class ModificarHotel
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(285, 63)
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(494, 73)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(125, 13)
+        Me.Label10.Size = New System.Drawing.Size(253, 26)
         Me.Label10.TabIndex = 97
         Me.Label10.Text = "Tipo de establecimiento :"
         '
         'cmbtipo
         '
+        Me.cmbtipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbtipo.FormattingEnabled = True
         Me.cmbtipo.Items.AddRange(New Object() {"alojamiento", "albergue", "camping"})
-        Me.cmbtipo.Location = New System.Drawing.Point(416, 60)
+        Me.cmbtipo.Location = New System.Drawing.Point(753, 70)
         Me.cmbtipo.Name = "cmbtipo"
-        Me.cmbtipo.Size = New System.Drawing.Size(100, 21)
+        Me.cmbtipo.Size = New System.Drawing.Size(202, 33)
         Me.cmbtipo.TabIndex = 96
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(140, 88)
+        Me.Label1.Location = New System.Drawing.Point(142, 101)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(0, 13)
         Me.Label1.TabIndex = 98
         '
         'txbWeb
         '
-        Me.txbWeb.Location = New System.Drawing.Point(541, 349)
+        Me.txbWeb.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txbWeb.Location = New System.Drawing.Point(904, 450)
         Me.txbWeb.Name = "txbWeb"
-        Me.txbWeb.Size = New System.Drawing.Size(100, 20)
+        Me.txbWeb.Size = New System.Drawing.Size(357, 32)
         Me.txbWeb.TabIndex = 115
         '
         'txbLongitud
         '
-        Me.txbLongitud.Location = New System.Drawing.Point(541, 452)
+        Me.txbLongitud.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txbLongitud.Location = New System.Drawing.Point(904, 580)
         Me.txbLongitud.Name = "txbLongitud"
-        Me.txbLongitud.Size = New System.Drawing.Size(100, 20)
+        Me.txbLongitud.Size = New System.Drawing.Size(357, 32)
         Me.txbLongitud.TabIndex = 114
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(463, 459)
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(791, 583)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(54, 13)
+        Me.Label2.Size = New System.Drawing.Size(107, 26)
         Me.Label2.TabIndex = 113
         Me.Label2.Text = "Longitud :"
         '
         'txbLatitud
         '
-        Me.txbLatitud.Location = New System.Drawing.Point(541, 418)
+        Me.txbLatitud.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txbLatitud.Location = New System.Drawing.Point(904, 534)
         Me.txbLatitud.Name = "txbLatitud"
-        Me.txbLatitud.Size = New System.Drawing.Size(100, 20)
+        Me.txbLatitud.Size = New System.Drawing.Size(357, 32)
         Me.txbLatitud.TabIndex = 112
         '
         'txbPrecio
         '
-        Me.txbPrecio.Location = New System.Drawing.Point(541, 387)
+        Me.txbPrecio.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txbPrecio.Location = New System.Drawing.Point(904, 490)
         Me.txbPrecio.Name = "txbPrecio"
-        Me.txbPrecio.Size = New System.Drawing.Size(100, 20)
+        Me.txbPrecio.Size = New System.Drawing.Size(357, 32)
         Me.txbPrecio.TabIndex = 111
         '
         'txbCategoria
         '
-        Me.txbCategoria.Location = New System.Drawing.Point(288, 452)
+        Me.txbCategoria.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txbCategoria.Location = New System.Drawing.Point(416, 577)
         Me.txbCategoria.Name = "txbCategoria"
-        Me.txbCategoria.Size = New System.Drawing.Size(100, 20)
+        Me.txbCategoria.Size = New System.Drawing.Size(357, 32)
         Me.txbCategoria.TabIndex = 110
         '
         'txbCapacidad
         '
-        Me.txbCapacidad.Location = New System.Drawing.Point(288, 422)
+        Me.txbCapacidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txbCapacidad.Location = New System.Drawing.Point(416, 531)
         Me.txbCapacidad.Name = "txbCapacidad"
-        Me.txbCapacidad.Size = New System.Drawing.Size(100, 20)
+        Me.txbCapacidad.Size = New System.Drawing.Size(358, 32)
         Me.txbCapacidad.TabIndex = 109
         '
         'txbUbicacion
         '
-        Me.txbUbicacion.Location = New System.Drawing.Point(288, 390)
+        Me.txbUbicacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txbUbicacion.Location = New System.Drawing.Point(416, 491)
         Me.txbUbicacion.Name = "txbUbicacion"
-        Me.txbUbicacion.Size = New System.Drawing.Size(100, 20)
+        Me.txbUbicacion.Size = New System.Drawing.Size(357, 32)
         Me.txbUbicacion.TabIndex = 108
         '
         'txbNombre
         '
-        Me.txbNombre.Location = New System.Drawing.Point(288, 356)
+        Me.txbNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txbNombre.Location = New System.Drawing.Point(416, 453)
         Me.txbNombre.Name = "txbNombre"
-        Me.txbNombre.Size = New System.Drawing.Size(100, 20)
+        Me.txbNombre.Size = New System.Drawing.Size(357, 32)
         Me.txbNombre.TabIndex = 107
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(463, 425)
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(802, 537)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(45, 13)
+        Me.Label7.Size = New System.Drawing.Size(89, 26)
         Me.Label7.TabIndex = 106
         Me.Label7.Text = "Latitud :"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(463, 390)
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(805, 493)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(43, 13)
+        Me.Label6.Size = New System.Drawing.Size(86, 26)
         Me.Label6.TabIndex = 105
         Me.Label6.Text = "Precio :"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(463, 356)
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(822, 453)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(36, 13)
+        Me.Label5.Size = New System.Drawing.Size(69, 26)
         Me.Label5.TabIndex = 104
         Me.Label5.Text = "Web :"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(210, 455)
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(282, 577)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(58, 13)
+        Me.Label4.Size = New System.Drawing.Size(118, 26)
         Me.Label4.TabIndex = 103
         Me.Label4.Text = "Categoria :"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(210, 425)
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(282, 534)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(64, 13)
+        Me.Label3.Size = New System.Drawing.Size(128, 26)
         Me.Label3.TabIndex = 102
         Me.Label3.Text = "Capacidad :"
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(210, 390)
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(290, 490)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(61, 13)
+        Me.Label9.Size = New System.Drawing.Size(120, 26)
         Me.Label9.TabIndex = 101
         Me.Label9.Text = "Ubicacion :"
         '
         'lblDni
         '
         Me.lblDni.AutoSize = True
-        Me.lblDni.Location = New System.Drawing.Point(210, 356)
+        Me.lblDni.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDni.Location = New System.Drawing.Point(308, 453)
         Me.lblDni.Name = "lblDni"
-        Me.lblDni.Size = New System.Drawing.Size(50, 13)
+        Me.lblDni.Size = New System.Drawing.Size(102, 26)
         Me.lblDni.TabIndex = 100
         Me.lblDni.Text = "Nombre :"
         '
@@ -249,17 +271,31 @@ Partial Class ModificarHotel
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(27, 88)
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(69, 75)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(39, 13)
+        Me.Label8.Size = New System.Drawing.Size(77, 26)
         Me.Label8.TabIndex = 116
         Me.Label8.Text = "Label8"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.ForeColor = System.Drawing.Color.Red
+        Me.Label11.Location = New System.Drawing.Point(466, 23)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(542, 39)
+        Me.Label11.TabIndex = 117
+        Me.Label11.Text = "MODIFICAR ESTABLECIMIENTO"
         '
         'ModificarHotel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 672)
+        Me.BackColor = System.Drawing.SystemColors.InactiveCaption
+        Me.ClientSize = New System.Drawing.Size(1401, 735)
+        Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.txbWeb)
         Me.Controls.Add(Me.txbLongitud)
@@ -284,6 +320,7 @@ Partial Class ModificarHotel
         Me.Controls.Add(Me.Button1)
         Me.Name = "ModificarHotel"
         Me.Text = "ModificarHotel"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorNombre, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorUbicacion, System.ComponentModel.ISupportInitialize).EndInit()
@@ -320,4 +357,5 @@ Partial Class ModificarHotel
     Friend WithEvents ErrorCapacidad As ErrorProvider
     Friend WithEvents ErrorPrecio As ErrorProvider
     Friend WithEvents Label8 As Label
+    Friend WithEvents Label11 As Label
 End Class

@@ -50,6 +50,7 @@ Partial Class Modificar
         Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.TextBox5 = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorDni, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorNombre, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -62,9 +63,10 @@ Partial Class Modificar
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(329, 483)
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(776, 625)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(117, 44)
+        Me.Button1.Size = New System.Drawing.Size(155, 44)
         Me.Button1.TabIndex = 78
         Me.Button1.Text = "Modificar"
         Me.Button1.UseVisualStyleBackColor = True
@@ -72,63 +74,70 @@ Partial Class Modificar
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(302, 437)
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(539, 572)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(42, 13)
+        Me.Label7.Size = New System.Drawing.Size(89, 26)
         Me.Label7.TabIndex = 70
         Me.Label7.Text = "G-mail :"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(409, 391)
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(824, 526)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(55, 13)
+        Me.Label6.Size = New System.Drawing.Size(107, 26)
         Me.Label6.TabIndex = 69
         Me.Label6.Text = "Telefono :"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(409, 357)
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(857, 488)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(37, 13)
+        Me.Label5.Size = New System.Drawing.Size(74, 26)
         Me.Label5.TabIndex = 68
         Me.Label5.Text = "Sexo :"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(409, 318)
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(857, 447)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(38, 13)
+        Me.Label4.Size = New System.Drawing.Size(75, 26)
         Me.Label4.TabIndex = 67
         Me.Label4.Text = "Edad :"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(198, 384)
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(526, 528)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(50, 13)
+        Me.Label3.Size = New System.Drawing.Size(102, 26)
         Me.Label3.TabIndex = 66
         Me.Label3.Text = "Apellido :"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(198, 349)
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(526, 487)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(50, 13)
+        Me.Label2.Size = New System.Drawing.Size(102, 26)
         Me.Label2.TabIndex = 65
         Me.Label2.Text = "Nombre :"
         '
         'lblDni
         '
         Me.lblDni.AutoSize = True
-        Me.lblDni.Location = New System.Drawing.Point(198, 315)
+        Me.lblDni.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDni.Location = New System.Drawing.Point(575, 450)
         Me.lblDni.Name = "lblDni"
-        Me.lblDni.Size = New System.Drawing.Size(32, 13)
+        Me.lblDni.Size = New System.Drawing.Size(63, 26)
         Me.lblDni.TabIndex = 64
         Me.lblDni.Text = "Dni : "
         '
@@ -152,10 +161,12 @@ Partial Class Modificar
         '
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(151, 70)
+        Me.DataGridView1.Location = New System.Drawing.Point(12, 92)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(504, 221)
+        Me.DataGridView1.Size = New System.Drawing.Size(1393, 333)
         Me.DataGridView1.TabIndex = 79
         '
         'ErrorDni
@@ -188,69 +199,90 @@ Partial Class Modificar
         '
         'cmbSexo
         '
+        Me.cmbSexo.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbSexo.FormattingEnabled = True
         Me.cmbSexo.Items.AddRange(New Object() {"M", "F"})
-        Me.cmbSexo.Location = New System.Drawing.Point(487, 354)
+        Me.cmbSexo.Location = New System.Drawing.Point(957, 487)
         Me.cmbSexo.Name = "cmbSexo"
-        Me.cmbSexo.Size = New System.Drawing.Size(100, 21)
+        Me.cmbSexo.Size = New System.Drawing.Size(162, 33)
         Me.cmbSexo.TabIndex = 80
         '
         'MaskedTextBoxEdad
         '
-        Me.MaskedTextBoxEdad.Location = New System.Drawing.Point(487, 315)
+        Me.MaskedTextBoxEdad.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MaskedTextBoxEdad.Location = New System.Drawing.Point(957, 444)
         Me.MaskedTextBoxEdad.Name = "MaskedTextBoxEdad"
-        Me.MaskedTextBoxEdad.Size = New System.Drawing.Size(100, 20)
+        Me.MaskedTextBoxEdad.Size = New System.Drawing.Size(162, 32)
         Me.MaskedTextBoxEdad.TabIndex = 84
         '
         'MaskedTextBoxTelefono
         '
-        Me.MaskedTextBoxTelefono.Location = New System.Drawing.Point(487, 388)
+        Me.MaskedTextBoxTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MaskedTextBoxTelefono.Location = New System.Drawing.Point(957, 528)
         Me.MaskedTextBoxTelefono.Name = "MaskedTextBoxTelefono"
-        Me.MaskedTextBoxTelefono.Size = New System.Drawing.Size(100, 20)
+        Me.MaskedTextBoxTelefono.Size = New System.Drawing.Size(162, 32)
         Me.MaskedTextBoxTelefono.TabIndex = 85
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(254, 307)
+        Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox2.Location = New System.Drawing.Point(644, 446)
         Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox2.Size = New System.Drawing.Size(174, 32)
         Me.TextBox2.TabIndex = 87
         '
         'TextBox3
         '
-        Me.TextBox3.Location = New System.Drawing.Point(255, 344)
+        Me.TextBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox3.Location = New System.Drawing.Point(644, 484)
         Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox3.Size = New System.Drawing.Size(174, 32)
         Me.TextBox3.TabIndex = 88
         '
         'TextBox4
         '
-        Me.TextBox4.Location = New System.Drawing.Point(255, 384)
+        Me.TextBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox4.Location = New System.Drawing.Point(645, 525)
         Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox4.Size = New System.Drawing.Size(173, 32)
         Me.TextBox4.TabIndex = 89
         '
         'TextBox5
         '
-        Me.TextBox5.Location = New System.Drawing.Point(351, 437)
+        Me.TextBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox5.Location = New System.Drawing.Point(644, 572)
         Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox5.Size = New System.Drawing.Size(475, 32)
         Me.TextBox5.TabIndex = 90
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(148, 54)
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(12, 63)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(39, 13)
+        Me.Label8.Size = New System.Drawing.Size(77, 26)
         Me.Label8.TabIndex = 91
         Me.Label8.Text = "Label8"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.ForeColor = System.Drawing.Color.Red
+        Me.Label11.Location = New System.Drawing.Point(637, 26)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(365, 39)
+        Me.Label11.TabIndex = 118
+        Me.Label11.Text = "MODIFICAR CLIENTE"
         '
         'Modificar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 556)
+        Me.BackColor = System.Drawing.SystemColors.InactiveCaption
+        Me.ClientSize = New System.Drawing.Size(1417, 698)
+        Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.TextBox5)
         Me.Controls.Add(Me.TextBox4)
@@ -271,6 +303,7 @@ Partial Class Modificar
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TextBox1)
         Me.Name = "Modificar"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorDni, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorNombre, System.ComponentModel.ISupportInitialize).EndInit()
@@ -310,4 +343,5 @@ Partial Class Modificar
     Friend WithEvents TextBox3 As TextBox
     Friend WithEvents TextBox5 As TextBox
     Friend WithEvents Label8 As Label
+    Friend WithEvents Label11 As Label
 End Class

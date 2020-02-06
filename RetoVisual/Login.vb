@@ -5,8 +5,9 @@ Public Class Login
     Dim sql As String
     Dim cadenaconexion As String = "server=192.168.106.14;database=retoethazi;user id=root2;password=root2;port=3306"
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.txbDni.Text = "1"
-        Me.txbContrasena.Text = "1"
+        Me.MaskedTextBox1.Mask = "00000000?"
+        Me.MaskedTextBox1.Text = "20234428V"
+        Me.txbContrasena.Text = "admin1"
         Dim coon As New MySqlConnection(cadenaconexion)
         Try
             coon.Open()
@@ -23,7 +24,7 @@ Public Class Login
         cnn = New MySqlConnection(cadenaconexion)
         Dim cmd1 = cnn.CreateCommand()
         cmd1.CommandText = "SELECT Dni,contrasena FROM usuario WHERE Dni= @dni AND contrasena= @contrasena AND admin=1"
-        cmd1.Parameters.AddWithValue("@dni", Me.txbDni.Text)
+        cmd1.Parameters.AddWithValue("@dni", Me.MaskedTextBox1.Text)
         cmd1.Parameters.AddWithValue("@contrasena", Me.txbContrasena.Text)
 
         Dim dr As MySqlDataReader = Nothing
@@ -32,12 +33,14 @@ Public Class Login
 
             dr = cmd1.ExecuteReader
             If dr.HasRows Then
-                MsgBox("Aceptado en el sistema")
                 Me.Hide()
                 Padre.Show()
 
             Else
                 MsgBox("Usuario o contraseña erronea")
+                Me.MaskedTextBox1.Text = ""
+                Me.txbContrasena.Text = ""
+                Me.MaskedTextBox1.Focus()
             End If
         Catch ex As Exception
             MsgBox(ex.Message)

@@ -50,6 +50,7 @@ Partial Class Alta
         Me.MaskedTextBoxTelefono = New System.Windows.Forms.MaskedTextBox()
         Me.MaskedTextBoxGmail = New System.Windows.Forms.MaskedTextBox()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         CType(Me.ErrorDni, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorNombre, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorApellido, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -269,6 +270,7 @@ Partial Class Alta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.InactiveCaption
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.MaskedTextBoxGmail)
@@ -292,6 +294,7 @@ Partial Class Alta
         Me.Controls.Add(Me.lblDni)
         Me.Name = "Alta"
         Me.Text = "Alta"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.ErrorDni, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorNombre, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorApellido, System.ComponentModel.ISupportInitialize).EndInit()
@@ -331,4 +334,5 @@ Partial Class Alta
     Friend WithEvents MaskedTextBoxTelefono As MaskedTextBox
     Friend WithEvents MaskedTextBoxGmail As MaskedTextBox
     Friend WithEvents Label9 As Label
+    Friend WithEvents HelpProvider1 As HelpProvider
 End Class

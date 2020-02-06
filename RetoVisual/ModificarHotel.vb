@@ -11,7 +11,7 @@ Public Class ModificarHotel
 
     Private Sub ModificarHotel_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.ControlBox = False
-
+        DataGridView1.DefaultCellStyle.Font = New Font("Microsoft Sans Serif", 16)
         Dim coon As New MySqlConnection(cadenaconexion)
         Try
             coon.Open()

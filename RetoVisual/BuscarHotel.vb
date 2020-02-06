@@ -1,30 +1,32 @@
 ﻿Imports MySql.Data.MySqlClient
 Public Class BuscarHotel
     Dim cnn As MySqlConnection
-    Dim das1 As DataSet
+    Dim das1, das3 As DataSet
     Dim datos As String
     Dim sql As String
     Dim tipo As String
-    Dim adap1 As MySqlDataAdapter
+    Dim cmd3 As MySqlCommand
+    Dim adap1, adap3 As MySqlDataAdapter
     Dim cadenaconexion As String = "server=192.168.106.14;database=retoethazi;user id=root2;password=root2;port=3306"
-    Dim dialog As New Form With {
-          .FormBorderStyle = FormBorderStyle.None,
-          .BackColor = Color.White,
-          .Size = New Size(800, 800)
-          }
-    Dim texto As New ListView() With {
-            .Name = "ListView1",
-            .Size = New Size(500, 500)
-        }
+    'Dim dialog As New Form With {
+    '      .FormBorderStyle = FormBorderStyle.None,
+    '      .BackColor = Color.White,
+    '      .Size = New Size(800, 800)
+    '      }
+    'Dim texto As New ListView() With {
+    '        .Name = "ListView1",
+    '        .Size = New Size(500, 500)
+    '    }
 
-    Dim cancelar As New Button() With {
-            .Text = "Atras",
-            .Location = New Point(250, 600),
-            .Size = New Size(100, 100)
-            }
+    'Dim cancelar As New Button() With {
+    '        .Text = "Atras",
+    '        .Location = New Point(250, 600),
+    '        .Size = New Size(100, 100)
+    '        }
 
     Private Sub BuscarHotel_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.ControlBox = False
+        DataGridView1.DefaultCellStyle.Font = New Font("Microsoft Sans Serif", 16)
         cmbtipo.SelectedIndex = 1
         Dim coon As New MySqlConnection(cadenaconexion)
         Try
@@ -68,56 +70,48 @@ Public Class BuscarHotel
         DataGridView1.Columns(8).Width = 100
 
     End Sub
-    Sub cerrar()
-        dialog.Close()
-    End Sub
+    'Sub cerrar()
+    '    dialog.Close()
+    'End Sub
 
     Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
-        Dim extension
-        If cmbtipo.Text = "alojamiento" Then
-            extension = "_alo"
-        ElseIf cmbtipo.Text = "albergue" Then
-            extension = "_alb"
-        ElseIf cmbtipo.Text = "camping" Then
-            extension = "_camping"
-        End If
-
         cnn = New MySqlConnection(cadenaconexion)
-        sql = "SELECT * FROM reserva" & extension & " WHERE Fk_IdEsta like '" & Me.DataGridView1.CurrentRow.Cells.Item(0).Value & "'"
-        MsgBox(sql)
+        sql = "SELECT * FROM reservas WHERE Fk_IdEsta like alb12"
+
         Dim cmd As New MySqlCommand(sql, cnn)
+        Dim a As String = Me.DataGridView1.CurrentRow.Cells.Item(0).Value
+        Me.lblresultado.Text = "El precio de todas las reservas es: " & calcular(a) & "€"
 
 
-
-        AddHandler cancelar.Click, AddressOf cerrar
+        'AddHandler cancelar.Click, AddressOf cerrar
 
         Try
             cnn.Open()
             Dim resultado As MySqlDataReader
             resultado = cmd.ExecuteReader
-            texto.Clear()
-            texto.GridLines = True
-            texto.View = View.Details
-            texto.Columns.Add(resultado.GetName(0), 90, HorizontalAlignment.Left)
-            texto.Columns.Add(resultado.GetName(1), 90, HorizontalAlignment.Left)
-            texto.Columns.Add(resultado.GetName(2), 90, HorizontalAlignment.Left)
-            texto.Columns.Add(resultado.GetName(3), 90, HorizontalAlignment.Left)
-            texto.Columns.Add(resultado.GetName(4), 90, HorizontalAlignment.Left)
-            texto.Columns.Add(resultado.GetName(5), 90, HorizontalAlignment.Left)
-            texto.Columns.Add(resultado.GetName(6), 90, HorizontalAlignment.Left)
-            texto.Columns.Add(resultado.GetName(7), 90, HorizontalAlignment.Left)
-            Dim x As Integer
-            While resultado.Read
-                texto.Items.Add(resultado.Item(0))
-                texto.Items(x).SubItems.Add(resultado.Item(1))
-                texto.Items(x).SubItems.Add(resultado.Item(2))
-                texto.Items(x).SubItems.Add(resultado.Item(3))
-                texto.Items(x).SubItems.Add(resultado.Item(4))
-                texto.Items(x).SubItems.Add(resultado.Item(5))
-                texto.Items(x).SubItems.Add(resultado.Item(6))
-                texto.Items(x).SubItems.Add(resultado.Item(7))
-                x += 1
-            End While
+            'texto.Clear()
+            'texto.GridLines = True
+            'texto.View = View.Details
+            'texto.Columns.Add(resultado.GetName(0), 90, HorizontalAlignment.Left)
+            'texto.Columns.Add(resultado.GetName(1), 90, HorizontalAlignment.Left)
+            'texto.Columns.Add(resultado.GetName(2), 90, HorizontalAlignment.Left)
+            'texto.Columns.Add(resultado.GetName(3), 90, HorizontalAlignment.Left)
+            'texto.Columns.Add(resultado.GetName(4), 90, HorizontalAlignment.Left)
+            'texto.Columns.Add(resultado.GetName(5), 90, HorizontalAlignment.Left)
+            'texto.Columns.Add(resultado.GetName(6), 90, HorizontalAlignment.Left)
+            'texto.Columns.Add(resultado.GetName(7), 90, HorizontalAlignment.Left)
+            'Dim x As Integer
+            'While resultado.Read
+            '    texto.Items.Add(resultado.Item(0))
+            '    texto.Items(x).SubItems.Add(resultado.Item(1))
+            '    texto.Items(x).SubItems.Add(resultado.Item(2))
+            '    texto.Items(x).SubItems.Add(resultado.Item(3))
+            '    texto.Items(x).SubItems.Add(resultado.Item(4))
+            '    texto.Items(x).SubItems.Add(resultado.Item(5))
+            '    texto.Items(x).SubItems.Add(resultado.Item(6))
+            '    texto.Items(x).SubItems.Add(resultado.Item(7))
+            '    x += 1
+            'End While
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
@@ -125,8 +119,38 @@ Public Class BuscarHotel
                 cnn.Close()
             End If
         End Try
-        dialog.Controls.Add(texto)
-        dialog.Controls.Add(cancelar)
-        dialog.ShowDialog()
+        'dialog.Controls.Add(texto)
+        'dialog.Controls.Add(cancelar)
+        'dialog.ShowDialog()
     End Sub
+    Function calcular(a As String) As Double
+        Dim total As Double
+        Dim x As Integer
+        Dim fecha1, fecha2 As Date
+        Dim sql As String
+        Dim difFecha As Integer
+        das3 = New DataSet
+        Try
+            sql = "Select * from reservas where Fk_IdEsta like alb12"
+            MsgBox(sql)
+            cmd3 = New MySqlCommand(sql, cnn)
+            adap3 = New MySqlDataAdapter(cmd3)
+            adap3.Fill(das3, "reserva")
+
+            For x = 0 To Me.das3.Tables("reserva").Rows.Count - 1
+                fecha1 = Convert.ToDateTime(Me.das3.Tables("reserva").Rows(x).Item("fecha_ini"))
+                fecha2 = Convert.ToDateTime(Me.das3.Tables("reserva").Rows(x).Item("FechaFin"))
+
+                difFecha = DateDiff(DateInterval.Day, fecha1, fecha2)
+                'MsgBox("calcular " & difFecha & vbNewLine & Me.das3.Tables("reserva").Rows(x).Item("Precio"))
+                'MsgBox("calcular " & Me.das3.Tables("reserva").Rows(x).Item("Habitaciones"))
+                total += Me.das3.Tables("reserva").Rows(x).Item("Precio") * Me.das3.Tables("reserva").Rows(x).Item("Habitaciones") * difFecha
+            Next
+
+        Catch ex As Exception
+
+            MsgBox("calcular " & ex.Message)
+        End Try
+        Return total
+    End Function
 End Class
